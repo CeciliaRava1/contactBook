@@ -89,46 +89,51 @@ Pseudocodigo
         🤜 Avisar al usuario del formato esperado Nombre: [2-25] String
         🤜 Solicitar al usuario nombre
         🤜 Agregar el nombre ingresado por el usuario a un array 
-        Si se pide mostrar la lista de contactos y esta vacia, informar que esta vacia
+        🤜 Si se pide mostrar la lista de contactos y esta vacia, informar que esta vacia
 
-    🔎 Como asocio el telefono ingresado por el usuario con la comprobacion que hace la clase contacto al crear uno
-        Repetir el metodo hasta que el usuario ingrese un numero de telefono valido
-         Avisar al usuario del formato esperado Telefono: [9-13] Number
-        Solicitar al usuario numero de telefono
+    🤜 Como asocio el telefono ingresado por el usuario con la comprobacion que hace la clase contacto al crear uno
+        🤜 Repetir el metodo hasta que el usuario ingrese un numero de telefono valido
+        🤜 Solicitar al usuario numero de telefono
 
-    Comparar nuevo contacto con contactos ya existentes para evitar duplicados
-        Si es duplicado
-            Informar al usuario
-            Mostrar el contacto al usuario
-        Si no es duplicado
-            Agregar el nuevo contacto a la lista de contactos
+    🤜 Comparar nuevo contacto con contactos ya existentes para evitar duplicados
+        🤜 Si es duplicado el nombre
+            🤜 Informar al usuario
+            🤜 Mostrar el contacto completo que esta duplicado
+            🤜 Preguntar si quiere modificarlo o salir
+        🤜 Si no es duplicado
+            🤜 Seguir con la peticion del numero
+            
+            
+        🤜 Si es duplicado el numero
+            🤜 Informar al usuario
+            🤜 Mostrar el contacto completo que esta duplicado
+            🤜 Preguntar si quiere modificarlo o salir
+            
+        🤜 Si no es duplicado
+            🤜 Agregar el nuevo contacto a la lista de contactos
 
-Crear metodo buscar contacto
-    Solicitar al usuario nombre
-    Repetir el metodo hasta que el usuario ingrese un nombre valido
-    Pasar nombre ingresado a minusculas
-    Buscar nombre en la agenda
-    Si existe
-        Mostrar contacto al cliente
-    Si no existe
-        Informar al cliente que no existe el contacto
-        Preguntarle si desea agregarlo
-        Si desea agregarlo
-            Llamar metodo agregarContacto()
-        Sino
-            Salir al menu
+🤜 Crear metodo buscar contacto
+    🤜 Solicitar al usuario nombre
+    🤜 Repetir el metodo hasta que el usuario ingrese un nombre valido
+    🤜 Pasar nombre ingresado a minusculas
+    🤜 Buscar nombre en la agenda
+    🤜 Si existe
+        🤜 Mostrar contacto al cliente
+    🤜 Si no existe
+        🤜 Informar al cliente que no existe el contacto
 
-Crear metodo modificar contacto
-    Solicitar al usuario nombre
-    Repetir el metodo hasta que el usuario ingrese un nombre valido
-    Pasar nombre a minusculas
-    Llamar metodo buscar contacto
-    Si existe
-        Preguntar al cliente si quiere modificar nombre, numero, ambos o cancelar
-            Si quiere modificar nombre, llamar setNombre()
-            Si quiere modificar numero, llamar setNUmero()
-            Modificar el contacto en la lista de contactos
-            Si quiere cancelar, ir al menu principal
+🤜 Crear metodo modificar contacto
+    🤜 Solicitar al usuario nombre
+    🤜 Pasar nombre a minusculas
+    🤜 Llamar metodo buscar contacto
+    🤜 Ver como hago para que el metodo buscar me devuelva el contacto si lo encontro
+    🤜 Ver como hago para relacionar ese resultado con el metodo modificar contacto
+    🤜 Si existe
+        🤜 Preguntar al cliente si quiere modificar nombre, numero, o cancelar
+            🤜 Si quiere modificar nombre, llamar setNombre()
+            🤜 Si quiere modificar numero, llamar setNUmero()
+            🤜 Modificar el contacto en la lista de contactos
+            🤜 Si quiere cancelar, ir al menu principal
 
 Crear metodo eliminar contacto
     Solicitar al usuario nombre
@@ -142,4 +147,4 @@ Crear metodo eliminar contacto
             Eliminar al contacto de la lista de contactos
             No: "Aqui no ha pasado nada"
                 Volver al menu principal
-Permitir salir de la ejecucion
+🤜 Permitir salir de la ejecucion

@@ -14,7 +14,7 @@ CONTACT BOOK
 ----------------------
 1. Add new contact
 2. Modify contact
-3. Show contact data
+3. Find contact data
 4. Delete contact
 5. Show contact list
 6. Exit
@@ -37,14 +37,15 @@ CONTACT BOOK
 ----------------------
     MODIFY CONTACT
 ----------------------`)
+            myContactBook.modifyContact()
             break
 
         case '3':
             console.log(`
 ----------------------
-     SHOW CONTACT
+     FIND CONTACT
 ----------------------`)
-            myContactBook.showContact()
+            myContactBook.findContact()
             break
 
         case '4':
@@ -57,7 +58,7 @@ CONTACT BOOK
         case '5':
             console.log(`
 ----------------------
-     SHOW LIST
+     ALL CONTACTS
 ----------------------`)
             myContactBook.showContactList()
             break
