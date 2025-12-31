@@ -1,0 +1,145 @@
+Ideas
+    Agenda empresarial. Puedo agregar empresas, cada empresa puede tener contactos, y cada contacto diferentes numeros
+
+Para pensar
+    Despues de implementar las comprobaciones en el string del nombre, investigar si es mejor usar if else
+    o usar los metodos trycatch de comprobacion de errores
+
+    Pensar de quien es la responsabilidad de mostrar el menu
+    La agenda es la clase padre que llama a los contactos para administrarlos
+    Antes que la agenda hay un sistema, no? Un main
+    Investigar como es la estructura en proyectos pequenios en js
+
+    A las comprobaciones de atributos de la clase contacto, las tiene que hacer el constructor o los sets?
+
+    Revisar que onda el constructor de contacto, si necesita this, let, como usar la logica de los sets
+
+Para mejorar
+    Investigar de que maneras puedo separar un string de un numero al mostrarlo
+    Agregar patrones de disenio como los solid
+
+
+Especificacion
+
+    Agenda que permita agregar, modificar, consultar y eliminar contactos, que tienen nombre y numero de telefono.
+    Nombre: [2-25] String; Telefono: [9] Number
+
+Requerimientos funcionales
+
+1 - Un contacto no puede tener nombre igual que otro
+2 - Un contacto no puede tener numero igual que otro
+4 - Se debe poder modificar tanto el nombre como el numero
+5 - Debe existir la opcion para salir de la agenda
+
+Diagrama de clases
+
+---------------------------
+Class: ContactBook
+---------------------------
+- contactList[array]
+- contactListLower[array]
+---------------------------
+- showContactList()
+---------------------------
+
+-------------------------------------------
+Class: Contact
+-------------------------------------------
+- name[string] (2-25)
+- phoneNumber[number] [9]
+-------------------------------------------
+- setName(newName)
+- setPhoneNumber(newPhoneNumer)
+- getName()
+- setName()
+
+- agregarContacto(nombre, numeroTelefono)
+- modificarContacto(nombre)
+- eliminarContacto(nombre)
+- buscarContacto(nombre)
+- mostrarContacto(nombre)
+-------------------------------------------
+
+Pseudocodigo
+🤜 Listo, master
+🔎 Dejame checo algo
+🍅 En el horno
+
+🤜 Crear clase contacto
+🤜 Crear sets para sus atributos
+    🤜 Comprobar ingreso de nombre [String]
+    🤜 Pasarlo a minusculas
+    🤜 Comprobar ingreso de numero [Number]
+       
+🤜 Crear gets para sus atributos
+    🤜 Al mostrar el numero, usar un formato correcto [xxx xxx xxxx]
+
+🤜 Crear clase Main
+🤜 Crear metodo para mostrar menu de seleccion
+    🤜 Crear menu de seleccion: Agregar, 2. Modificar, 3. Consultar, 4. Eliminar, 5. Salir
+    🤜 Descubrir como es la logica para permitir el ingreso de datos por parte del usuario
+    🤜 Verificar que el usuario ingrese una opcion valida
+    🤜 Crear logica para determinar curso del programa segun la opcion elegida
+    🤜 Relacionar las clases entre si 
+
+🤜 Crear clase Agenda
+🤜 Crear metodo agregar contacto
+    🤜 Como asocio el nombre ingresado por el usuario con la comprobacion que hace la clase contacto al crear uno
+        🤜 Repetir el metodo hasta que el usuario ingrese un nombre valido
+        🤜 Avisar al usuario del formato esperado Nombre: [2-25] String
+        🤜 Solicitar al usuario nombre
+        🤜 Agregar el nombre ingresado por el usuario a un array 
+        Si se pide mostrar la lista de contactos y esta vacia, informar que esta vacia
+
+    🔎 Como asocio el telefono ingresado por el usuario con la comprobacion que hace la clase contacto al crear uno
+        Repetir el metodo hasta que el usuario ingrese un numero de telefono valido
+         Avisar al usuario del formato esperado Telefono: [9-13] Number
+        Solicitar al usuario numero de telefono
+
+    Comparar nuevo contacto con contactos ya existentes para evitar duplicados
+        Si es duplicado
+            Informar al usuario
+            Mostrar el contacto al usuario
+        Si no es duplicado
+            Agregar el nuevo contacto a la lista de contactos
+
+Crear metodo buscar contacto
+    Solicitar al usuario nombre
+    Repetir el metodo hasta que el usuario ingrese un nombre valido
+    Pasar nombre ingresado a minusculas
+    Buscar nombre en la agenda
+    Si existe
+        Mostrar contacto al cliente
+    Si no existe
+        Informar al cliente que no existe el contacto
+        Preguntarle si desea agregarlo
+        Si desea agregarlo
+            Llamar metodo agregarContacto()
+        Sino
+            Salir al menu
+
+Crear metodo modificar contacto
+    Solicitar al usuario nombre
+    Repetir el metodo hasta que el usuario ingrese un nombre valido
+    Pasar nombre a minusculas
+    Llamar metodo buscar contacto
+    Si existe
+        Preguntar al cliente si quiere modificar nombre, numero, ambos o cancelar
+            Si quiere modificar nombre, llamar setNombre()
+            Si quiere modificar numero, llamar setNUmero()
+            Modificar el contacto en la lista de contactos
+            Si quiere cancelar, ir al menu principal
+
+Crear metodo eliminar contacto
+    Solicitar al usuario nombre
+    Repetir el metodo hasta que el usuario ingrese un nombre valido
+    Pasar nombre a minusculas
+    Llamar metodo buscar contacto
+    Si existe
+        Mostrar contacto al cliente
+        Solicitar confirmacion de la eliminacion
+            Si: Mostrar "El contacto ha sido eliminado correctamente"
+            Eliminar al contacto de la lista de contactos
+            No: "Aqui no ha pasado nada"
+                Volver al menu principal
+Permitir salir de la ejecucion
