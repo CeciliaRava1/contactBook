@@ -5,19 +5,15 @@ Para pensar
     Despues de implementar las comprobaciones en el string del nombre, investigar si es mejor usar if else
     o usar los metodos trycatch de comprobacion de errores
 
-    Pensar de quien es la responsabilidad de mostrar el menu
-    La agenda es la clase padre que llama a los contactos para administrarlos
-    Antes que la agenda hay un sistema, no? Un main
-    Investigar como es la estructura en proyectos pequenios en js
-
-    A las comprobaciones de atributos de la clase contacto, las tiene que hacer el constructor o los sets?
-
-    Revisar que onda el constructor de contacto, si necesita this, let, como usar la logica de los sets
-
 Para mejorar
     Investigar de que maneras puedo separar un string de un numero al mostrarlo
     Agregar patrones de disenio como los solid
-
+    Ver si se pueden reutilizar algunas variables
+    Ver si puedo reducir las variables de control adentro de los metodos
+    Aprender testing para poder probar mi programa
+    Ver como agregarle una base de datos
+    Hacer la idea de la agenda empresarial
+    Agregar opcion cancelar a todos los flujos
 
 Especificacion
 
@@ -65,6 +61,22 @@ Pseudocodigo
 🔎 Dejame checo algo
 🍅 En el horno
 
+
+
+
+ADD Contact
+    Al ingresar el numero mal, Si se agrego el nombre bien, no pedirlo de nuevo
+    Aplicar los throw en todas las clases menos en main para eliminar los console
+    Hacer que main sea la unica clase que se comunique con el usuario mediante console
+        🤜 contact.js
+           contactBook.js
+    Tanto main como contactBook le piden datos al usuario, eso tambien estaria mal? Para mi solo lo tendria que dirigir main 
+    y a contact le tendrian que llegar los prompts como argumentos...
+
+
+
+
+-------------------------------------------------
 🤜 Crear clase contacto
 🤜 Crear sets para sus atributos
     🤜 Comprobar ingreso de nombre [String]
@@ -135,16 +147,16 @@ Pseudocodigo
             🤜 Modificar el contacto en la lista de contactos
             🤜 Si quiere cancelar, ir al menu principal
 
-Crear metodo eliminar contacto
-    Solicitar al usuario nombre
-    Repetir el metodo hasta que el usuario ingrese un nombre valido
-    Pasar nombre a minusculas
-    Llamar metodo buscar contacto
-    Si existe
-        Mostrar contacto al cliente
-        Solicitar confirmacion de la eliminacion
-            Si: Mostrar "El contacto ha sido eliminado correctamente"
-            Eliminar al contacto de la lista de contactos
-            No: "Aqui no ha pasado nada"
-                Volver al menu principal
+🤜 Crear metodo eliminar contacto
+    🤜 Solicitar al usuario nombre
+    🤜 Repetir el metodo hasta que el usuario ingrese un nombre valido
+    🤜 Pasar nombre a minusculas
+    🤜 Llamar metodo buscar contacto
+    🤜 Si existe
+        🤜 Mostrar contacto al cliente
+        🤜 Solicitar confirmacion de la eliminacion
+            🤜 Si: Mostrar "El contacto ha sido eliminado correctamente"
+            🤜 Eliminar al contacto de la lista de contactos
+            🤜 No: "Aqui no ha pasado nada"
+                🤜 Volver al menu principal
 🤜 Permitir salir de la ejecucion

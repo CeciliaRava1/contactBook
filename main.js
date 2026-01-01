@@ -23,21 +23,35 @@ CONTACT BOOK
 
     switch(userInput) {
         case '1':
-            console.log(`
-----------------------
-     ADD CONTACT
-----------------------`)
-            myContactBook.addContact()
-            console.log('Contact added!')
-            console.log(' ')
-            break
+
+            let validContact = false;
+
+            while (!validContact) {
+                try {
+                    myContactBook.addContact();
+                    console.log('Contact added successfully!');
+                    validContact =- true
+
+                } catch (error) {
+                    console.log('Error adding contact: ❌');
+                    console.log(error.message); 
+                }
+            }
+            break;
 
         case '2':
             console.log(`
 ----------------------
     MODIFY CONTACT
 ----------------------`)
-            myContactBook.modifyContact()
+            try {
+                myContactBook.modifyContact()
+                console.log('Contact modified!');
+                    
+            } catch (error) {
+                console.log('Contact not modified: ❌');
+                console.log(error.message); 
+            }
             break
 
         case '3':
@@ -45,7 +59,14 @@ CONTACT BOOK
 ----------------------
      FIND CONTACT
 ----------------------`)
-            myContactBook.findContact()
+            try {
+                myContactBook.findContact();
+                console.log('Contact found!');
+                    
+            } catch (error) {
+                console.log('Contact not found: ❌');
+                console.log(error.message); 
+            }
             break
 
         case '4':
@@ -53,6 +74,7 @@ CONTACT BOOK
 ----------------------
     DELETE CONTACT
 ----------------------`)
+            myContactBook.deleteContact()
             break
 
         case '5':
@@ -60,7 +82,12 @@ CONTACT BOOK
 ----------------------
      ALL CONTACTS
 ----------------------`)
-            myContactBook.showContactList()
+            try {
+                myContactBook.showContactList()
+                    
+            } catch (error) {
+                console.log(error.message); 
+            }
             break
 
         case '6':

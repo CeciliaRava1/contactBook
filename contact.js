@@ -6,35 +6,29 @@ class Contact{
     }
 
     set name(newName) {
-        let newNameLength = newName.length
-        if (typeof newName == 'string') {
-
-            if (newNameLength >= 2 && newNameLength <= 25) {
-                newName = newName.toLowerCase()
-                this._name = newName
-            } else {
-                console.log('Name must have [2-25] chars')
-            }
-
-        } else {
-            console.log('Name must be an String')
+        if (typeof newName !== 'string') {
+            throw new Error('Name must be a String');
         }
 
+        let newNameLength = newName.length;
+        if (newNameLength < 2 || newNameLength > 25) {
+            throw new Error('Name must have [2-25] chars');
+        }
+
+        this._name = newName.toLowerCase();
     }
 
     set phoneNumber(newPhoneNumber) {
+        if (typeof newPhoneNumber != 'number') {
+            throw new Error('Phone must be a number')
+        }
 
         let newPhoneLength = newPhoneNumber.toString().length
-        if (typeof newPhoneNumber == 'number') {
 
-            if (newPhoneLength == 9) {
-                this._phoneNumber = newPhoneNumber.toString()
-            } else {
-                console.log('Phone number must have [9] digits')
-            }
-
+        if (newPhoneLength == 9) {
+            this._phoneNumber = newPhoneNumber.toString()
         } else {
-            console.log('Phone number must be a number')
+            throw new Error('Phone number must have [9] digits')
         }
 
     }

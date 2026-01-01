@@ -19,23 +19,51 @@ class contactBook {
         let duplicateName = true
         let duplicatePhone = true
         let invalidOption = true
+        
         this.newContact = new Contact()
 
         while (this.newContact._name == undefined || duplicateName) {
 
-            this.newContact.name = prompt('Name: ')
+            if (this.contactList.length == 0) {
+
+                this.newContact.name = prompt('Name: ')
+
+            } else {
+                this.newContact.name = prompt('Name: ')
             
-            for (let i = 0; i < this.contactList.length; i++) {
+                for (let i = 0; i < this.contactList.length; i++) {
                     
-                if (this.newContact.name == this.contactList[i].name) {
+                    if (this.newContact.name == this.contactList[i].name) {
                         
-                    throw new Error('Name already exists') //
+                        console.log('Name already exists')
+                        console.log(this.contactList[i])
+                        i = this.contactList.length 
                         
-                } else {
-                    duplicateName = false
+                        while (invalidOption) { 
+            
+                            this.continue = prompt('0. Cancel 1. Try again')
+                            
+                            if (this.continue == 0 || this.continue == 1) {
+                                
+                                if (this.continue == 0) { 
+                                    duplicateName = false 
+                                }
+                                invalidOption = false
+                                
+                            } else {
+                                console.log('You must input 0 or 1')
+                            }
+                        }
+                        
+                        invalidOption = true
+                        
+                    } else {
+                        duplicateName = false
+                    }
                 }
             }
-              
+            
+            
             if(this.contactList.length == 0) {
                 duplicateName = false
             }
@@ -48,7 +76,27 @@ class contactBook {
                 
                 if (this.newContact.phoneNumber == this.contactList[i].phoneNumber) {
                     
-                    throw new Error('Phone already exists') //
+                    console.log('This phone already exists. Try again')
+                    invalidOption = true
+                    console.log(this.contactList[i])
+                    i = this.contactList.length  
+                    
+                    while (invalidOption) { 
+                        this.continue = prompt('0. Cancel 1. Try again')
+                        
+                        if (this.continue == 0 || this.continue == 1) {
+                            
+                            if (this.continue == 0) { 
+                                duplicatePhone = false 
+                            }
+                            invalidOption = false
+                            
+                        } else {
+                            console.log('You must input 0 or 1')
+                        }
+                        this.continue = 1 //
+                    }
+                    invalidOption = true
                     
                 } else {
                     duplicatePhone = false
@@ -61,8 +109,13 @@ class contactBook {
         }
         
         duplicatePhone = true
-        this.contactList.push(this.newContact)
-        console.log(this.contactList[0].name)
+        
+        if (this.continue != 0) {
+            this.contactList.push(this.newContact)
+            console.log(this.contactList[0].name)
+        } else {
+            console.log('New contact cancel')
+        }
     }
 
     findContact() {
@@ -70,19 +123,18 @@ class contactBook {
         
         for (let i = 0; i < this.contactList.length; i++) {
 
-            console.log(this.contactList[i]._name, this.contactToFind)
-
             if (this.contactList[i]._name == this.contactToFind) {
+                console.log('Contact found')
                 console.log(this.contactList[i])
-                this.contactIndex = i
                 return this.contactList[i] ////
+                this.contactIndex = i
             } else {
-                throw new Error('Contact is not in the contact book')
+                console.log('Contact not found')
             }
         }
         
         if (this.contactList.length == 0) {
-            throw new Error('Contact list is empty!')
+            console.log('Contact list is empty!')
         }
     }
 
@@ -90,7 +142,7 @@ class contactBook {
         if (this.contactList.length != 0) {
             console.log(this.contactList)
         } else {
-            throw new Error('Contact list is empty!')
+            console.log('There is no contacts')
         }
     }
     
@@ -107,23 +159,23 @@ class contactBook {
                     this.newContact._name = prompt('Type new name: ').toLowerCase()
                     this.contactList[this.contactIndex].name = this.newContact._name
                     this.correctInput = true
+                    console.log('Contact modified!')
                 
                 } else if (this.userInput == 2) {
-                    this.newContact._phoneNumber = Number(prompt('Type new phone: '))
+                    this.newContact._phoneNumber = prompt('Type new phone: ')
                     this.contactList[this.contactIndex].phoneNumber = this.newContact._phoneNumber
                     this.correctInput = true
+                    console.log('Contact modified!')
                     
                 } else if(this.userInput == 0) {
                     this.correctInput = true
                     
                 } else {
-                    throw new Error('You must type 0, 1, 2, 3. Try again') // Revisar si esto funciona
+                    console.log('You must type 0, 1, 2, 3. Try again')
                 }
             }
-            this.correctInput = false
-            
+            return true
         } 
-        return true
     }
 
     deleteContact() {
