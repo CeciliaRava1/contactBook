@@ -70,13 +70,14 @@ ADD Contact
     🤜 Hacer que main sea la unica que se comunique con el usuario mediante console
         🤜 contact.js
         🤜 contactBook.js
-
-
-    Agregar la posibilidad de cancelar a todos los metodos 
-        🤜 delete contact
+    🤜 Agregar la posibilidad de cancelar a todos los metodos 
         
     Hacer que main sea la unica que pida datos al usuario. Las clases validan, no piden info
         🤜 contact.js
+🍅 Situacion: Ahora la clase Agenda pide las cosas al usuario, pero el objetivo es que las pida main
+La creacion del contacto y las comprobaciones de sus atributos las hace agenda
+Entonces hay que pasarle el valor recibido en main, pero tambien hay que pedirlo 
+hasta que la validacion retorne true, es decir que esta todo bien
 
 
 

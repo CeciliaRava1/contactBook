@@ -27,6 +27,7 @@ CONTACT BOOK
             let validContact = false;
 
             while (!validContact) {
+                
                 try {
                     myContactBook.addContact();
                     console.log('Contact added successfully!');

@@ -99,7 +99,7 @@ class contactBook {
         if(this.findContact()) {
             
             console.log('What do you want to modify?')
-            this.userInput = prompt('1. Name 2. Phone')
+            this.userInput = prompt('1. Name 2. Phone 0.Cancel')
             
             while(!this.correctInput) {
 
@@ -113,8 +113,10 @@ class contactBook {
                     this.contactList[this.contactIndex].phoneNumber = this.newContact._phoneNumber
                     this.correctInput = true
                     
+                } else if(this.userInput == 0) {
+                    this.correctInput = true
                 } else {
-                    throw new Error('You must type 1, 2. Try again') // Revisar si esto funciona
+                    throw new Error('You must type 1, 2. Try again') 
                 }
             }
             this.correctInput = false
