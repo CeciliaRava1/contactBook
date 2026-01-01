@@ -66,12 +66,17 @@ Pseudocodigo
 
 ADD Contact
     Al ingresar el numero mal, Si se agrego el nombre bien, no pedirlo de nuevo
-    Aplicar los throw en todas las clases menos en main para eliminar los console
-    Hacer que main sea la unica clase que se comunique con el usuario mediante console
+
+    🤜 Hacer que main sea la unica que se comunique con el usuario mediante console
         🤜 contact.js
-           contactBook.js
-    Tanto main como contactBook le piden datos al usuario, eso tambien estaria mal? Para mi solo lo tendria que dirigir main 
-    y a contact le tendrian que llegar los prompts como argumentos...
+        🤜 contactBook.js
+
+
+    Agregar la posibilidad de cancelar a todos los metodos 
+        🤜 delete contact
+        
+    Hacer que main sea la unica que pida datos al usuario. Las clases validan, no piden info
+        🤜 contact.js
 
 
 

@@ -74,7 +74,15 @@ CONTACT BOOK
 ----------------------
     DELETE CONTACT
 ----------------------`)
-            myContactBook.deleteContact()
+
+            try {
+                myContactBook.deleteContact()
+                console.log('Contact deleted!');
+                    
+            } catch (error) {
+                console.log('Contact not deleted: ❌');
+                console.log(error.message); 
+            }
             break
 
         case '5':

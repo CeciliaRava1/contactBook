@@ -99,7 +99,7 @@ class contactBook {
         if(this.findContact()) {
             
             console.log('What do you want to modify?')
-            this.userInput = prompt('1. Name 2. Phone 0.Cancel')
+            this.userInput = prompt('1. Name 2. Phone')
             
             while(!this.correctInput) {
 
@@ -113,20 +113,18 @@ class contactBook {
                     this.contactList[this.contactIndex].phoneNumber = this.newContact._phoneNumber
                     this.correctInput = true
                     
-                } else if(this.userInput == 0) {
-                    this.correctInput = true
-                    
                 } else {
-                    throw new Error('You must type 0, 1, 2, 3. Try again') // Revisar si esto funciona
+                    throw new Error('You must type 1, 2. Try again') // Revisar si esto funciona
                 }
             }
             this.correctInput = false
-            
         } 
         return true
     }
 
     deleteContact() {
+        let contactListLength = this.contactList.length
+        
         if(this.findContact()) {
             this.userInput = prompt('1. Delete contact 0. Cancel')
 
@@ -135,18 +133,24 @@ class contactBook {
                 if (this.userInput == 1) {
 
                     this.contactList.splice(this.contactIndex, 1)
-                    console.log('Contact deleted')
                     this.correctInput = true
                 
                 } else if(this.userInput == 0) {
                     this.correctInput = true
                     
                 } else {
-                    console.log('You must type 0, 1. Try again')
+                    throw new Error('You must type 0, 1. Try again')
                 }
             }
             this.correctInput = false
         } 
+        
+        let contactListNewLength = this.contactList.length
+        if(contactListLength != contactListNewLength) {
+            return true 
+        } else {
+            throw new Error('Operation cancelled')
+        }
     }
 }
 
