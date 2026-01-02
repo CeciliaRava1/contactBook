@@ -2,18 +2,13 @@ Ideas
     Agenda empresarial. Puedo agregar empresas, cada empresa puede tener contactos, y cada contacto diferentes numeros
 
 Para pensar
-    Despues de implementar las comprobaciones en el string del nombre, investigar si es mejor usar if else
-    o usar los metodos trycatch de comprobacion de errores
 
 Para mejorar
-    Investigar de que maneras puedo separar un string de un numero al mostrarlo
     Agregar patrones de disenio como los solid
     Ver si se pueden reutilizar algunas variables
-    Ver si puedo reducir las variables de control adentro de los metodos
     Aprender testing para poder probar mi programa
     Ver como agregarle una base de datos
     Hacer la idea de la agenda empresarial
-    Agregar opcion cancelar a todos los flujos
 
 Especificacion
 
@@ -29,14 +24,18 @@ Requerimientos funcionales
 
 Diagrama de clases
 
----------------------------
+------------------------------------------------------
 Class: ContactBook
----------------------------
+------------------------------------------------------
 - contactList[array]
 - contactListLower[array]
----------------------------
+------------------------------------------------------
 - showContactList()
----------------------------
+- addContact(name, phone)
+- findContact(name)
+- modifyContact(name, dataToModify, newData)
+- deleteContact(name)
+------------------------------------------------------
 
 -------------------------------------------
 Class: Contact
@@ -48,12 +47,6 @@ Class: Contact
 - setPhoneNumber(newPhoneNumer)
 - getName()
 - setName()
-
-- agregarContacto(nombre, numeroTelefono)
-- modificarContacto(nombre)
-- eliminarContacto(nombre)
-- buscarContacto(nombre)
-- mostrarContacto(nombre)
 -------------------------------------------
 
 Pseudocodigo
@@ -61,33 +54,10 @@ Pseudocodigo
 🔎 Dejame checo algo
 🍅 En el horno
 
-
-
-
-ADD Contact
-    Al ingresar el numero mal, Si se agrego el nombre bien, no pedirlo de nuevo
-
-    🤜 Hacer que main sea la unica que se comunique con el usuario mediante console
-        🤜 contact.js
-        🤜 contactBook.js
-    🤜 Agregar la posibilidad de cancelar a todos los metodos 
-        
-    Hacer que main sea la unica que pida datos al usuario. Las clases validan, no piden info
-        🤜 contact.js
-           contactBook
-            🤜 find
-            revisar metodo delete que se rompio por find
-🍅 Situacion: Ahora la clase Agenda pide las cosas al usuario, pero el objetivo es que las pida main
-La creacion del contacto y las comprobaciones de sus atributos las hace agenda
-Entonces hay que pasarle el valor recibido en main, pero tambien hay que pedirlo 
-hasta que la validacion retorne true, es decir que esta todo bien
-
-
-
-
-
-
 -------------------------------------------------
+
+🤜 Hacer que main sea la unica que se comunique con el usuario mediante console
+🤜 Hacer que main sea la unica que pida datos al usuario. Las clases validan, no piden info
 🤜 Crear clase contacto
 🤜 Crear sets para sus atributos
     🤜 Comprobar ingreso de nombre [String]

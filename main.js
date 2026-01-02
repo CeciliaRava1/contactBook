@@ -4,6 +4,10 @@ import promptSync from 'prompt-sync';
 const prompt = promptSync();
 let run = true
 let contactToFind = ''
+let dataToModify = 0
+let newData = ''
+let newName = ''
+let newPhone = 0
 
 import contactBook from './contactBook.js';
 
@@ -30,7 +34,9 @@ CONTACT BOOK
             while (!validContact) {
                 
                 try {
-                    myContactBook.addContact();
+                    newName = prompt('Name: ').toLowerCase()
+                    newPhone = Number(prompt('Phone number: '))
+                    myContactBook.addContact(newName, newPhone);
                     console.log('Contact added successfully!');
                     validContact =- true
 
@@ -48,7 +54,16 @@ CONTACT BOOK
 ----------------------`)
             try {
                 contactToFind = prompt('Type name of the contact to modify: ').toLowerCase()
-                myContactBook.modifyContact(contactToFind)
+                console.log('What do you want to modify?')
+                dataToModify = prompt('1. Name 2. Phone 0.Cancel')
+                
+                if (dataToModify == 1) {
+                    newData = prompt('Type new name: ').toLowerCase()
+                } else if (dataToModify == 2) {
+                    newData = Number(prompt('Type new phone: '))
+                }
+
+                myContactBook.modifyContact(contactToFind, dataToModify, newData)
                 console.log('Contact modified!');
                     
             } catch (error) {
@@ -80,7 +95,8 @@ CONTACT BOOK
 ----------------------`)
 
             try {
-                myContactBook.deleteContact()
+                contactToFind = prompt('Type name of the contact to find: ').toLowerCase()
+                myContactBook.deleteContact(contactToFind)
                 console.log('Contact deleted!');
                     
             } catch (error) {
