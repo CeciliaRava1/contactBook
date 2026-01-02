@@ -74,10 +74,15 @@ ADD Contact
         
     Hacer que main sea la unica que pida datos al usuario. Las clases validan, no piden info
         🤜 contact.js
+           contactBook
+            🤜 find
+            revisar metodo delete que se rompio por find
 🍅 Situacion: Ahora la clase Agenda pide las cosas al usuario, pero el objetivo es que las pida main
 La creacion del contacto y las comprobaciones de sus atributos las hace agenda
 Entonces hay que pasarle el valor recibido en main, pero tambien hay que pedirlo 
 hasta que la validacion retorne true, es decir que esta todo bien
+
+
 
 
 

@@ -3,6 +3,7 @@
 import promptSync from 'prompt-sync';
 const prompt = promptSync();
 let run = true
+let contactToFind = ''
 
 import contactBook from './contactBook.js';
 
@@ -46,7 +47,8 @@ CONTACT BOOK
     MODIFY CONTACT
 ----------------------`)
             try {
-                myContactBook.modifyContact()
+                contactToFind = prompt('Type name of the contact to modify: ').toLowerCase()
+                myContactBook.modifyContact(contactToFind)
                 console.log('Contact modified!');
                     
             } catch (error) {
@@ -61,7 +63,8 @@ CONTACT BOOK
      FIND CONTACT
 ----------------------`)
             try {
-                myContactBook.findContact();
+                contactToFind = prompt('Type name of the contact to find: ').toLowerCase()
+                myContactBook.findContact(nameToFind);
                 console.log('Contact found!');
                     
             } catch (error) {

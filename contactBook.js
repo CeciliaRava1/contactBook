@@ -18,7 +18,6 @@ class contactBook {
     addContact() {
         let duplicateName = true
         let duplicatePhone = true
-        let invalidOption = true
         this.newContact = new Contact()
 
         while (this.newContact._name == undefined || duplicateName) {
@@ -65,17 +64,16 @@ class contactBook {
         console.log(this.contactList[0].name)
     }
 
-    findContact() {
-        this.contactToFind = prompt('Type name of the contact to find: ').toLowerCase()
+    findContact(contactToFind) {
         
         for (let i = 0; i < this.contactList.length; i++) {
 
-            console.log(this.contactList[i]._name, this.contactToFind)
+            console.log(this.contactList[i]._name, contactToFind)
 
-            if (this.contactList[i]._name == this.contactToFind) {
+            if (this.contactList[i]._name == contactToFind) {
                 console.log(this.contactList[i])
                 this.contactIndex = i
-                return this.contactList[i] ////
+                return this.contactList[i]
             } else {
                 throw new Error('Contact is not in the contact book')
             }
@@ -94,10 +92,11 @@ class contactBook {
         }
     }
     
-    modifyContact() {
+    modifyContact(contactToFind) {
 
-        if(this.findContact()) {
+        if(this.findContact(contactToFind)) {
             
+            // Ver como poner la opcion de argumento en modificar contacto
             console.log('What do you want to modify?')
             this.userInput = prompt('1. Name 2. Phone 0.Cancel')
             
