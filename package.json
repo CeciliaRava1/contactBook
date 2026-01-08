@@ -3,5 +3,11 @@
   "dependencies": {
     "prompt-sync": "^4.2.0",
     "python3": "^0.0.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
   }
 }
