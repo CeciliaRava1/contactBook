@@ -13,14 +13,15 @@ Para mejorar
 Especificacion
 
     Agenda que permita agregar, modificar, consultar y eliminar contactos, que tienen nombre y numero de telefono.
-    Nombre: [2-25] String; Telefono: [9] Number
-
+    Nombre: [2-25] String; Telefono: [9] String
 Requerimientos funcionales
 
 1 - Un contacto no puede tener nombre igual que otro
 2 - Un contacto no puede tener numero igual que otro
 4 - Se debe poder modificar tanto el nombre como el numero
 5 - Debe existir la opcion para salir de la agenda
+6 - Al guardar un contacto en la lista de contactos, su nombre debe quedar en minusculas
+7 - El ingreso de nombresde contacto para su busqueda no debe ser case sensitive
 
 Diagrama de clases
 
