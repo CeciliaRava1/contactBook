@@ -2,7 +2,7 @@
 
 import Contact from "../src/contact.js";
 
-// --- Contact Class (Unit Tests) ---
+
 test('should accept name when length is greater than or equal to 2', () => {
     const contact = new Contact();
     contact.name = 'Ludmila';
@@ -38,29 +38,20 @@ test('should throw error when name length is greater than 25', () => {
     expect(assignGreaterName).toThrow('Name must have [2-25] chars'); 
 });
 
-// Ver manejo de numer to string en la logica
+
 test('should accept phone when it has exactly 9 digits', () => {
     const contact = new Contact();
-    contact.phone = 123456789;
+    contact.phoneNumber = 123456789;
 
-    expect(contact._phoneNumber).toBe('123456789'); 
+    expect(contact._phoneNumber).toBe('123 456 789'); 
 });
 
-/*
-test('should throw error when phone length is not 9 digits');
 
-test('should return the phone number in format [xxx xxx xxxx]'); // get
-
-
-
-
-// Example
-test('Should show an error if name is shorter than 2 chars', () => {
+test('should throw error when phone length is not 9 digits', () => {
     const contact = new Contact();
-    const assignShortName = () => {
-    contact.name = 'A'; 
-    };
+    const assignInvalidPhone = () => {
+        contact.phoneNumber = 1234;
+    }
 
-    expect(assignShortName).toThrow('Name must have [2-25] chars');
+    expect(assignInvalidPhone).toThrow('Phone number must have [9] digits');
 });
-*/

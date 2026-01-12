@@ -1,4 +1,4 @@
-// --- Contact Class (Unit Tests) ---
+🤜 // --- Contact Class (Unit Tests) ---
 test('should accept name when length is greater than or equal to 2');
 test('should throw error when name length is less than 2');
 
@@ -7,8 +7,6 @@ test('should throw error when name length is greater than 25');
 
 test('should accept phone when it has exactly 9 digits');
 test('should throw error when phone length is not 9 digits');
-
-test('should return the phone number in format [xxx xxx xxxx]'); // get
 
 
 // --- Contact Book Class (Logic Tests) ---
