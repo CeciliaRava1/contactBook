@@ -5,7 +5,7 @@ import promptSync from 'prompt-sync';
 const prompt = promptSync();
 
 
-class contactBook {
+class ContactBook {
     constructor() {
         this.contactList = []
         this.contactIndex = 0
@@ -16,6 +16,7 @@ class contactBook {
         let duplicateName = true
         let duplicatePhone = true
         this.newContact = new Contact()
+        newName = newName.toLowerCase()
 
         while (newName == undefined || duplicateName) {
             
@@ -134,4 +135,4 @@ class contactBook {
     }
 }
 
-export default contactBook
+export default ContactBook
