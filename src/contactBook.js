@@ -65,6 +65,7 @@ class ContactBook {
     findContact(contactToFind) {
         
         this.contactIndex = -1
+        contactToFind = contactToFind.toLowerCase()
         
         for (let i = 0; i < this.contactList.length; i++) {
 

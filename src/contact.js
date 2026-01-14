@@ -27,8 +27,6 @@ class Contact{
 
         if (newPhoneLength == 9) {
             this._phoneNumber = newPhoneNumber.toString()
-            this._phoneNumber = this._phoneNumber.substring(0, 3) + ' ' + this._phoneNumber.substring(3, 6) + ' ' + this._phoneNumber.substring(6, 9)
-
         } else {
             throw new Error('Phone number must have [9] digits')
         }
@@ -40,6 +38,7 @@ class Contact{
     }
 
     get phoneNumber() {
+        this._phoneNumber = this._phoneNumber.substring(0, 3) + ' ' + this._phoneNumber.substring(3, 6) + ' ' + this._phoneNumber.substring(6, 9)
         return `Tel:  ${this._phoneNumber}`
     }
 
