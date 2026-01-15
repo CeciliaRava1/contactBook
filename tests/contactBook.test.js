@@ -70,10 +70,52 @@ test('should modify the contact name when the contact exists', () => {
 });
 
 
-/*
-test('should throw error when trying to modify a non-existent contact name');
 
-test('should modify the contact phone when the contact exists');
+test('should throw error when trying to modify a non-existent contact name', () => {
+    const contactBook = new ContactBook();
+    const findNotExist = () => {
+        contactBook.modifyContact('Lili', 1, 'Lumiere')
 
-test('should be case-insensitive when searching for a contact');
-*/
+    }
+
+    expect(findNotExist).toThrow('Contact is not in the contact book'); 
+});
+
+
+test('should modify the contact phone when the contact exists', () => {
+    const contactBook = new ContactBook();
+    contactBook.addContact('Lili', 143234543);
+    contactBook.modifyContact('Lili', 2, 123123123)
+
+    expect(contactBook.findContact('Lili')._phoneNumber).toBe('123123123'); 
+});
+
+// Edgy cases
+test('should throw error when trying to delete from an empty contact list', () => {
+    const contactBook = new ContactBook();
+    const deleteEmptyList = () => {
+        contactBook.deleteContact('Lili')
+
+    }
+
+    expect(deleteEmptyList).toThrow('Contact is not in the contact book'); 
+});
+
+
+test('should show contact list when it is have contacts', () => {
+    const contactBook = new ContactBook();
+    contactBook.addContact('Lili', 143234543);
+
+    expect(contactBook.showContactList()).toBe(contactBook.contactList); 
+});
+
+
+test('should not show contact list when it is empty', () => {
+    const contactBook = new ContactBook();
+    const ShowContactsEmpty= () => {
+        contactBook.showContactList()
+
+    }
+
+    expect(ShowContactsEmpty).toThrow('Contact list is empty!'); 
+});

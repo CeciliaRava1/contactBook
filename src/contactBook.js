@@ -88,7 +88,7 @@ class ContactBook {
 
     showContactList() {
         if (this.contactList.length != 0) {
-            console.log(this.contactList)
+            return this.contactList
         } else {
             throw new Error('Contact list is empty!')
         }
